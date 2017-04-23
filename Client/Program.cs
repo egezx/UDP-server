@@ -11,10 +11,9 @@ namespace UdpClientProgram
 {
     class Program
     {
-        /*
-         * !!THIS IS SHITTY QUICKLY CREATED PIECE OF CODE TO DEMONSTRATE
-         * HOW SERVER PROGRAM WORKS! DO NOT TRY TO LEARN FROM THIS!!!
-         */
+       /*
+           FOR TESTING THE SERVER
+       */
 
         public const string password = "pass";
         static void Main(string[] args)
