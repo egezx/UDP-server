@@ -12,7 +12,7 @@ namespace UdpServer
     class Program
     {
 
-        //CONSTANTS
+        
         public const byte HEADER_AUTH_FAILED = 0x00;
         public const byte HEADER_AUTH_SUCCEEDED = 0x01;
         public const byte HEADER_AUTH_TOKEN = 0x02;
@@ -22,7 +22,7 @@ namespace UdpServer
 
         public const string password = "pass";
 
-        //OTHER VARIABLES
+       
         public static List<ClientInfo> clientList = new List<ClientInfo>();
         public static UdpClient serverSocket = null;
         public static IPEndPoint clientEndpoint = null;
@@ -73,9 +73,6 @@ namespace UdpServer
 
 
 
-        /*
-         * HandleData() can be accessed after client has succesfully authenticated.
-         */
         public static void HandleData(byte[] data)
         {
             string receivedMessage = Encoding.ASCII.GetString(data);
@@ -93,12 +90,7 @@ namespace UdpServer
 
 
 
-        /*
-         * CheckAuthResponse() is used when client IP-address exists on clientlist but has authenticated set false.
-         * This packet is expected to be token hashed with password and we are going to compute same hash 
-         * on server side and check if it equals to the one received from the client. If yes, then authenticated
-         * is set true and client can send data normally. If not, then just remove client IP-address from clientlist.
-         */
+
         public static void CheckAuthResponse(byte[] data)
         {
             string response = Encoding.ASCII.GetString(data);
@@ -118,10 +110,7 @@ namespace UdpServer
 
 
 
-        /*
-         * GenerateSendToken() is used when server receives packet from new client (IP-address not found in clientlist).
-         * Generate new token (in this case it will be Guid), send it to the client and store it to clientlist with IP-address.
-         */
+
         public static void GenerateSendToken()
         {
             string guidString = Guid.NewGuid().ToString();
